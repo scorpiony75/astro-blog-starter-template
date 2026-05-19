@@ -1,0 +1,388 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Get Involved – Open Farms WNY"
+			description="Volunteer, donate, or sign up for updates. Find out how you can support Open Farms WNY and make a difference in Western New York."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+
+			<section class="page-hero">
+				<div class="container">
+					<span class="section-tag">Take Action</span>
+					<h1>Get Involved</h1>
+					<p>
+						Three powerful ways to support Open Farms WNY — choose one, or choose all three.
+					</p>
+				</div>
+			</section>
+
+			<!-- Volunteer -->
+			<section id="volunteer" class="section">
+				<div class="container involve-grid">
+					<div class="involve-text">
+						<div class="involve-number">01</div>
+						<span class="section-tag">🙌 Volunteer</span>
+						<h2>Join a Work Session</h2>
+						<p>
+							Volunteering at Open Farms WNY is the most direct way to be part of our mission.
+							Come work in the gardens, care for animals, maintain the farm, and spend time with
+							people who love the same things you do.
+						</p>
+						<p>
+							Saturday mornings (8 AM – 12 PM) are year-round and always welcoming to new faces. No
+							sign-up required for regular sessions — just show up!
+						</p>
+						<p>
+							Want to bring a group, schedule a special visit, or get more involved? Fill out the
+							form and we'll be in touch.
+						</p>
+						<div class="involve-form card">
+							<h4>Volunteer Sign-Up</h4>
+							<form>
+								<div class="form-row">
+									<div class="form-group">
+										<label for="vol-first">First Name</label>
+										<input type="text" id="vol-first" name="first_name" required />
+									</div>
+									<div class="form-group">
+										<label for="vol-last">Last Name</label>
+										<input type="text" id="vol-last" name="last_name" required />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="vol-email">Email Address</label>
+									<input type="email" id="vol-email" name="email" required />
+								</div>
+								<div class="form-group">
+									<label for="vol-session">Preferred Session</label>
+									<select id="vol-session" name="session">
+										<option value="">— Select a session —</option>
+										<option>Saturday Morning (8 AM – 12 PM)</option>
+										<option>Thursday Evening (5 PM – 8 PM)</option>
+										<option>Family Farm Day (First Sunday)</option>
+										<option>Open to any session</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="vol-notes">Anything you'd like us to know? (optional)</label>
+									<textarea id="vol-notes" name="notes" rows="3"></textarea>
+								</div>
+								<button type="submit" class="btn btn-secondary">Sign Me Up</button>
+							</form>
+						</div>
+					</div>
+					<div class="involve-side">
+						<img src="/blog-placeholder-1.jpg" alt="Volunteers at Open Farms WNY" class="involve-img" />
+						<div class="involve-facts">
+							<div class="fact">
+								<span class="fact-number">500+</span>
+								<span class="fact-label">Volunteers served each year</span>
+							</div>
+							<div class="fact">
+								<span class="fact-number">Sat</span>
+								<span class="fact-label">8 AM – No sign-up needed</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Donate -->
+			<section id="donate" class="section bg-off-white">
+				<div class="container involve-grid involve-reverse">
+					<div class="involve-text">
+						<div class="involve-number involve-number-yellow">02</div>
+						<span class="section-tag">❤️ Donate</span>
+						<h2>Support Our Mission</h2>
+						<p>
+							Open Farms WNY runs entirely on donations, grants, and volunteer labor. Your gift
+							directly supports the animals, the gardens, the programs, and the people who make
+							this community farm possible.
+						</p>
+						<p>Every dollar makes a difference. Here's what your contribution could support:</p>
+						<ul class="impact-list">
+							<li><strong>$25</strong> feeds our animals for a week</li>
+							<li><strong>$50</strong> covers seeds and supplies for a planting session</li>
+							<li><strong>$100</strong> supports one participant in our Therapeutic Farming program</li>
+							<li><strong>$250</strong> sponsors a school group field trip</li>
+							<li><strong>$1,000+</strong> helps us maintain farm equipment and infrastructure</li>
+						</ul>
+						<div class="donate-buttons">
+							<a href="#" class="btn btn-primary">Donate $25</a>
+							<a href="#" class="btn btn-primary">Donate $50</a>
+							<a href="#" class="btn btn-primary">Donate $100</a>
+							<a href="#" class="btn btn-outline-green">Custom Amount</a>
+						</div>
+						<p class="donate-note">
+							Open Farms WNY is a registered 501(c)(3) nonprofit. Your donation is tax-deductible
+							to the extent allowed by law.
+						</p>
+					</div>
+					<div class="involve-side">
+						<img src="/blog-placeholder-2.jpg" alt="The farm and community" class="involve-img" />
+						<div class="involve-facts">
+							<div class="fact fact-yellow">
+								<span class="fact-number">501(c)(3)</span>
+								<span class="fact-label">Tax-deductible donations</span>
+							</div>
+							<div class="fact fact-yellow">
+								<span class="fact-number">100%</span>
+								<span class="fact-label">Goes to farm & programs</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Newsletter -->
+			<section id="updates" class="section">
+				<div class="container">
+					<div class="newsletter-block">
+						<div class="newsletter-text">
+							<div class="involve-number">03</div>
+							<span class="section-tag">📬 Stay Connected</span>
+							<h2>Get Farm Updates</h2>
+							<p>
+								Sign up for our newsletter to get seasonal farm news, event announcements, volunteer
+								opportunities, and stories from the field — delivered right to your inbox. We send
+								updates a few times a month, never spam.
+							</p>
+						</div>
+						<div class="newsletter-form card">
+							<h4>Join Our Mailing List</h4>
+							<form>
+								<div class="form-row">
+									<div class="form-group">
+										<label for="news-first">First Name</label>
+										<input type="text" id="news-first" name="first_name" required />
+									</div>
+									<div class="form-group">
+										<label for="news-last">Last Name</label>
+										<input type="text" id="news-last" name="last_name" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="news-email">Email Address</label>
+									<input type="email" id="news-email" name="email" required />
+								</div>
+								<div class="form-group">
+									<label>I'm interested in: (optional)</label>
+									<div class="check-group">
+										<label class="check-label"><input type="checkbox" name="interest" value="volunteer" /> Volunteering</label>
+										<label class="check-label"><input type="checkbox" name="interest" value="events" /> Events & Farm Days</label>
+										<label class="check-label"><input type="checkbox" name="interest" value="education" /> School Programs</label>
+										<label class="check-label"><input type="checkbox" name="interest" value="therapeutic" /> Therapeutic Programs</label>
+									</div>
+								</div>
+								<button type="submit" class="btn btn-secondary">Subscribe</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.involve-grid {
+		display: grid;
+		grid-template-columns: 1fr 380px;
+		gap: 4rem;
+		align-items: start;
+	}
+
+	.involve-reverse {
+		grid-template-columns: 380px 1fr;
+	}
+
+	.involve-reverse .involve-text {
+		order: 2;
+	}
+
+	.involve-reverse .involve-side {
+		order: 1;
+	}
+
+	.involve-number {
+		font-size: 4rem;
+		font-weight: 900;
+		color: var(--green-pale);
+		line-height: 1;
+		margin-bottom: 0.5rem;
+	}
+
+	.involve-number-yellow {
+		color: #fff8e1;
+	}
+
+	.involve-text h2 {
+		margin-bottom: 1.25rem;
+	}
+
+	.involve-form {
+		padding: 2rem;
+		margin-top: 2rem;
+	}
+
+	.involve-form h4 {
+		margin-bottom: 1.25rem;
+		color: var(--green-dark);
+	}
+
+	.form-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+	}
+
+	.involve-img {
+		width: 100%;
+		aspect-ratio: 3 / 4;
+		object-fit: cover;
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow);
+		margin-bottom: 1.25rem;
+	}
+
+	.involve-facts {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.75rem;
+	}
+
+	.fact {
+		background: var(--green-pale);
+		border-radius: var(--radius);
+		padding: 1rem;
+		text-align: center;
+	}
+
+	.fact-yellow {
+		background: var(--yellow-pale);
+	}
+
+	.fact-number {
+		display: block;
+		font-size: 1.5rem;
+		font-weight: 900;
+		color: var(--green-dark);
+		line-height: 1;
+		margin-bottom: 0.35rem;
+	}
+
+	.fact-yellow .fact-number {
+		color: var(--yellow-dark);
+	}
+
+	.fact-label {
+		font-size: 0.78rem;
+		font-weight: 700;
+		color: var(--text-mid);
+	}
+
+	/* Donate */
+	.impact-list {
+		padding: 0 0 0 1.25rem;
+		margin: 0 0 1.5rem;
+	}
+
+	.impact-list li {
+		margin-bottom: 0.5rem;
+		font-size: 0.95rem;
+		color: var(--text-mid);
+	}
+
+	.donate-buttons {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-bottom: 1.25rem;
+	}
+
+	.donate-note {
+		font-size: 0.82rem;
+		color: var(--text-light);
+		font-style: italic;
+	}
+
+	/* Newsletter */
+	.newsletter-block {
+		display: grid;
+		grid-template-columns: 1fr 480px;
+		gap: 4rem;
+		align-items: start;
+	}
+
+	.newsletter-form {
+		padding: 2rem;
+	}
+
+	.newsletter-form h4 {
+		margin-bottom: 1.25rem;
+		color: var(--green-dark);
+	}
+
+	.check-group {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.5rem;
+	}
+
+	.check-label {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.9rem;
+		color: var(--text-mid);
+		cursor: pointer;
+	}
+
+	.check-label input {
+		width: auto;
+		accent-color: var(--green);
+	}
+
+	@media (max-width: 900px) {
+		.involve-grid,
+		.involve-reverse {
+			grid-template-columns: 1fr;
+		}
+
+		.involve-reverse .involve-text,
+		.involve-reverse .involve-side {
+			order: unset;
+		}
+
+		.involve-side {
+			display: none;
+		}
+
+		.newsletter-block {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.form-row,
+		.check-group {
+			grid-template-columns: 1fr;
+		}
+
+		.donate-buttons {
+			flex-direction: column;
+		}
+	}
+</style>

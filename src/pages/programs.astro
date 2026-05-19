@@ -1,0 +1,264 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const programs = [
+	{
+		id: 'community',
+		icon: '🌱',
+		title: 'Community Farming',
+		tagline: 'Get your hands in the soil alongside your neighbors.',
+		body: [
+			'Our Community Farming program is the heart of Open Farms WNY. Volunteers of all skill levels come together to plant, tend, and harvest vegetables, maintain the fields, and help keep the farm running through every season.',
+			'No experience is necessary — our farm staff will guide you through everything. What you will need is enthusiasm, comfortable clothes you don\'t mind getting dirty, and a willingness to work alongside some great people.',
+			'Community farming sessions happen every Saturday morning and Thursday evening (spring through fall). We also host special planting days, harvest festivals, and work parties throughout the year.',
+		],
+		details: [
+			{ label: 'When', value: 'Saturdays 8 AM – 12 PM · Thursdays 5 PM – 8 PM (spring–fall)' },
+			{ label: 'Who', value: 'Open to everyone, ages 14+. Under 14 with a parent.' },
+			{ label: 'What to bring', value: 'Sturdy shoes, work gloves, water bottle, sun protection.' },
+			{ label: 'Cost', value: 'Free. Donations welcome.' },
+		],
+		cta: { label: 'Sign Up to Volunteer', href: '/get-involved#volunteer' },
+	},
+	{
+		id: 'animals',
+		icon: '🐐',
+		title: 'Animal Care',
+		tagline: 'Bond with our goats, chickens, and farm residents.',
+		body: [
+			'Open Farms WNY is home to a wonderful group of farm animals — goats, chickens, and more. Our Animal Care program gives participants the chance to learn the daily rhythms of caring for animals: feeding, watering, grooming, health monitoring, and keeping their spaces clean.',
+			'Working with animals is a uniquely grounding experience. Many participants find that their time with the animals is the highlight of their visit — and the animals seem to agree.',
+			'Animal Care opportunities are available during regular volunteer sessions and as part of our Therapeutic Farming program.',
+		],
+		details: [
+			{ label: 'Animals', value: 'Goats, chickens, and seasonal additions.' },
+			{ label: 'When', value: 'During regular volunteer sessions and special events.' },
+			{ label: 'Who', value: 'All ages welcome with adult supervision for younger children.' },
+			{ label: 'Cost', value: 'Included with general volunteer participation. Free.' },
+		],
+		cta: { label: 'Come Meet the Animals', href: '/get-involved#volunteer' },
+	},
+	{
+		id: 'education',
+		icon: '📚',
+		title: 'Educational Programs',
+		tagline: 'Bring learning to life on a real working farm.',
+		body: [
+			'Our Educational Programs are designed for school groups, youth organizations, scouts, and homeschool co-ops. Guided farm tours bring science, ecology, nutrition, and community to life in a way no classroom can replicate.',
+			'Groups participate in hands-on activities tailored to their age group and learning goals — from planting seeds to meeting farm animals to exploring where their food comes from. Programs typically run 1.5–2 hours.',
+			'We are happy to work with teachers and group leaders to customize the experience and align it with curriculum goals. We serve groups from Pre-K through high school.',
+		],
+		details: [
+			{ label: 'Group size', value: 'Up to 30 participants per session.' },
+			{ label: 'Duration', value: '1.5 – 2 hours.' },
+			{ label: 'Scheduling', value: 'By appointment, weekdays preferred.' },
+			{ label: 'Cost', value: 'Sliding scale. No group turned away for lack of funds.' },
+		],
+		cta: { label: 'Book a School Visit', href: '/contact' },
+	},
+	{
+		id: 'therapeutic',
+		icon: '💚',
+		title: 'Therapeutic Farming',
+		tagline: 'Nature, purpose, and community — a powerful combination.',
+		body: [
+			'Our Therapeutic Farming program is a structured, supported experience for individuals who benefit from a gentle, purposeful connection to nature and community. The program is rooted in evidence that time on a working farm — with its rhythms, animals, and tangible results — supports mental health, social connection, and overall well-being.',
+			'Participants join small, consistent cohorts with dedicated support and clear, achievable farm tasks. The program is collaborative — participants work alongside staff and general volunteers in an integrated, welcoming environment.',
+			'We partner with local mental health organizations, social service agencies, and schools to provide referrals and coordinate support. If you work with individuals who might benefit, we\'d love to talk.',
+		],
+		details: [
+			{ label: 'Format', value: 'Structured cohorts with ongoing support.' },
+			{ label: 'Referrals', value: 'Through partner organizations or self-referral.' },
+			{ label: 'Who', value: 'Adults and teens; partner with us for specific populations.' },
+			{ label: 'Cost', value: 'Free for participants. Supported by grants and donations.' },
+		],
+		cta: { label: 'Learn More & Refer', href: '/contact' },
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Programs – Open Farms WNY"
+			description="Explore Open Farms WNY's programs: community farming, animal care, educational field trips, and therapeutic farming in Western New York."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+
+			<section class="page-hero">
+				<div class="container">
+					<span class="section-tag">What We Offer</span>
+					<h1>Our Programs</h1>
+					<p>
+						From growing vegetables to caring for animals, there's a place for everyone at Open
+						Farms WNY.
+					</p>
+				</div>
+			</section>
+
+			<!-- Program nav -->
+			<div class="prog-nav">
+				<div class="container">
+					<ul>
+						{programs.map((p) => (
+							<li><a href={`#${p.id}`}>{p.icon} {p.title}</a></li>
+						))}
+					</ul>
+				</div>
+			</div>
+
+			<!-- Individual programs -->
+			{
+				programs.map((p, i) => (
+					<section id={p.id} class={`section ${i % 2 === 1 ? 'bg-off-white' : ''}`}>
+						<div class="container prog-grid">
+							<div class="prog-content">
+								<span class="section-tag">{p.icon} {p.title}</span>
+								<h2>{p.tagline}</h2>
+								{p.body.map((para) => <p>{para}</p>)}
+								<a href={p.cta.href} class="btn btn-secondary">{p.cta.label}</a>
+							</div>
+							<div class="prog-details">
+								<div class="details-card">
+									<h4>Quick Details</h4>
+									<dl>
+										{p.details.map((d) => (
+											<>
+												<dt>{d.label}</dt>
+												<dd>{d.value}</dd>
+											</>
+										))}
+									</dl>
+								</div>
+							</div>
+						</div>
+					</section>
+				))
+			}
+
+			<!-- CTA -->
+			<section class="cta-section">
+				<div class="container cta-inner">
+					<div class="cta-text">
+						<h2>Not sure where to start?</h2>
+						<p>Come to an open farm session on any Saturday morning — no sign-up required.</p>
+					</div>
+					<div class="cta-actions">
+						<a href="/visit" class="btn btn-secondary">See the Schedule</a>
+						<a href="/contact" class="btn btn-outline-green">Ask a Question</a>
+					</div>
+				</div>
+			</section>
+
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.prog-nav {
+		background: var(--white);
+		border-bottom: 1px solid var(--border);
+		position: sticky;
+		top: 72px;
+		z-index: 90;
+	}
+
+	.prog-nav ul {
+		display: flex;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		gap: 0.25rem;
+		overflow-x: auto;
+		scrollbar-width: none;
+	}
+
+	.prog-nav a {
+		display: block;
+		padding: 0.875rem 1.1rem;
+		font-weight: 700;
+		font-size: 0.9rem;
+		color: var(--text-mid);
+		white-space: nowrap;
+		border-bottom: 3px solid transparent;
+		transition: color var(--transition), border-color var(--transition);
+	}
+
+	.prog-nav a:hover {
+		color: var(--green);
+		border-bottom-color: var(--green);
+	}
+
+	.prog-grid {
+		display: grid;
+		grid-template-columns: 1fr 380px;
+		gap: 4rem;
+		align-items: start;
+	}
+
+	.prog-content h2 {
+		margin-bottom: 1.25rem;
+	}
+
+	.prog-content p {
+		margin-bottom: 1rem;
+	}
+
+	.prog-content .btn {
+		margin-top: 0.5rem;
+	}
+
+	.details-card {
+		background: var(--green-pale);
+		border-radius: var(--radius-lg);
+		padding: 2rem;
+		position: sticky;
+		top: 130px;
+	}
+
+	.details-card h4 {
+		color: var(--green-dark);
+		margin-bottom: 1.25rem;
+		font-size: 1rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-size: 0.82rem;
+	}
+
+	dl {
+		margin: 0;
+	}
+
+	dt {
+		font-weight: 800;
+		font-size: 0.82rem;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--green);
+		margin-bottom: 0.2rem;
+	}
+
+	dd {
+		margin: 0 0 1rem;
+		font-size: 0.92rem;
+		color: var(--text-mid);
+		line-height: 1.5;
+	}
+
+	@media (max-width: 900px) {
+		.prog-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.details-card {
+			position: static;
+		}
+	}
+</style>

@@ -1,0 +1,266 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Contact Us – Open Farms WNY"
+			description="Get in touch with Open Farms WNY. We'd love to hear from you about volunteering, programs, school visits, or anything else."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+
+			<section class="page-hero">
+				<div class="container">
+					<span class="section-tag">Say Hello</span>
+					<h1>Contact Us</h1>
+					<p>We'd love to hear from you. Reach out with questions, ideas, or just to say hi.</p>
+				</div>
+			</section>
+
+			<section class="section">
+				<div class="container contact-grid">
+					<!-- Form -->
+					<div class="contact-form-wrap">
+						<div class="card contact-form-card">
+							<h2>Send Us a Message</h2>
+							<p>We typically respond within 1–2 business days.</p>
+							<form>
+								<div class="form-row">
+									<div class="form-group">
+										<label for="c-first">First Name</label>
+										<input type="text" id="c-first" name="first_name" required />
+									</div>
+									<div class="form-group">
+										<label for="c-last">Last Name</label>
+										<input type="text" id="c-last" name="last_name" required />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="c-email">Email Address</label>
+									<input type="email" id="c-email" name="email" required />
+								</div>
+								<div class="form-group">
+									<label for="c-subject">What's this about?</label>
+									<select id="c-subject" name="subject">
+										<option value="">— Select a topic —</option>
+										<option>Volunteering</option>
+										<option>Donating</option>
+										<option>School / Group Visit</option>
+										<option>Therapeutic Farming Program</option>
+										<option>Partnership / Collaboration</option>
+										<option>Media Inquiry</option>
+										<option>General Question</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="c-message">Your Message</label>
+									<textarea id="c-message" name="message" rows="5" required></textarea>
+								</div>
+								<button type="submit" class="btn btn-secondary">Send Message</button>
+							</form>
+						</div>
+					</div>
+
+					<!-- Info sidebar -->
+					<div class="contact-info">
+						<div class="info-block">
+							<span class="info-icon">📧</span>
+							<div>
+								<strong>Email</strong>
+								<p><a href="mailto:info@openfarmsny.org">info@openfarmsny.org</a></p>
+							</div>
+						</div>
+						<div class="info-block">
+							<span class="info-icon">📍</span>
+							<div>
+								<strong>Location</strong>
+								<p>Western New York<br />(address provided upon registration)</p>
+							</div>
+						</div>
+						<div class="info-block">
+							<span class="info-icon">🕐</span>
+							<div>
+								<strong>Farm Hours</strong>
+								<p>
+									Saturday: 8 AM – 12 PM<br />
+									Thursday: 5 PM – 8 PM (Spring–Fall)<br />
+									First Sunday: 10 AM – 2 PM
+								</p>
+							</div>
+						</div>
+
+						<div class="social-callout">
+							<h4>Follow Us</h4>
+							<p>Stay up to date with farm news, events, and animal updates on social media.</p>
+							<div class="social-row">
+								<a href="#" class="social-btn">
+									<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+									Facebook
+								</a>
+								<a href="#" class="social-btn">
+									<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+									Instagram
+								</a>
+							</div>
+						</div>
+
+						<div class="newsletter-mini">
+							<h4>Get Farm Updates</h4>
+							<p>Sign up for our newsletter to stay in the loop.</p>
+							<a href="/get-involved#updates" class="btn btn-outline-green btn-sm">Subscribe</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.contact-grid {
+		display: grid;
+		grid-template-columns: 1fr 340px;
+		gap: 3rem;
+		align-items: start;
+	}
+
+	.contact-form-card {
+		padding: 2.5rem;
+	}
+
+	.contact-form-card h2 {
+		margin-bottom: 0.5rem;
+	}
+
+	.contact-form-card > p {
+		margin-bottom: 2rem;
+		color: var(--text-mid);
+	}
+
+	.form-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+	}
+
+	/* Info sidebar */
+	.contact-info {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		position: sticky;
+		top: 100px;
+	}
+
+	.info-block {
+		display: flex;
+		gap: 1rem;
+		align-items: flex-start;
+		padding: 1.25rem;
+		background: var(--green-pale);
+		border-radius: var(--radius);
+	}
+
+	.info-icon {
+		font-size: 1.5rem;
+		flex-shrink: 0;
+		line-height: 1.3;
+	}
+
+	.info-block strong {
+		display: block;
+		font-weight: 800;
+		color: var(--text);
+		margin-bottom: 0.2rem;
+	}
+
+	.info-block p {
+		font-size: 0.9rem;
+		margin: 0;
+	}
+
+	.social-callout {
+		background: var(--off-white);
+		border-radius: var(--radius);
+		padding: 1.5rem;
+	}
+
+	.social-callout h4 {
+		margin-bottom: 0.5rem;
+	}
+
+	.social-callout p {
+		font-size: 0.88rem;
+		margin-bottom: 1rem;
+	}
+
+	.social-row {
+		display: flex;
+		gap: 0.75rem;
+	}
+
+	.social-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.5em 1em;
+		border-radius: var(--radius-full);
+		font-size: 0.85rem;
+		font-weight: 700;
+		background: var(--white);
+		color: var(--text);
+		border: 1px solid var(--border);
+		transition: all var(--transition);
+	}
+
+	.social-btn:hover {
+		border-color: var(--green);
+		color: var(--green);
+	}
+
+	.newsletter-mini {
+		background: var(--yellow-pale);
+		border: 1px solid #ffe082;
+		border-radius: var(--radius);
+		padding: 1.5rem;
+	}
+
+	.newsletter-mini h4 {
+		margin-bottom: 0.5rem;
+		color: var(--green-dark);
+	}
+
+	.newsletter-mini p {
+		font-size: 0.88rem;
+		margin-bottom: 1rem;
+	}
+
+	@media (max-width: 900px) {
+		.contact-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.contact-info {
+			position: static;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.form-row {
+			grid-template-columns: 1fr;
+		}
+
+		.contact-form-card {
+			padding: 1.5rem;
+		}
+	}
+</style>

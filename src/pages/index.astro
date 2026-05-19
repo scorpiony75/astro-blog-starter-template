@@ -2,49 +2,726 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
+
+const programs = [
+	{
+		icon: '🌱',
+		title: 'Community Farming',
+		desc: 'Work alongside our team to grow vegetables, tend fields, and keep the farm going. All skill levels welcome — just bring your enthusiasm.',
+		link: '/programs#community',
+	},
+	{
+		icon: '🐐',
+		title: 'Animal Care',
+		desc: 'Connect with our goats, chickens, and other farm animals. Learn the daily routines of feeding, grooming, and caring for animals.',
+		link: '/programs#animals',
+	},
+	{
+		icon: '📚',
+		title: 'Educational Programs',
+		desc: 'School groups and youth organizations come for guided tours and hands-on learning that brings science and nature to life.',
+		link: '/programs#education',
+	},
+	{
+		icon: '💚',
+		title: 'Therapeutic Farming',
+		desc: 'A structured program harnessing the healing power of purposeful outdoor work, connecting individuals with nature and community.',
+		link: '/programs#therapeutic',
+	},
+];
+
+const stats = [
+	{ number: '500+', label: 'Volunteers Served' },
+	{ number: '10', label: 'Acres of Farmland' },
+	{ number: '200+', label: 'Community Members' },
+	{ number: '4', label: 'Programs Offered' },
+];
+
+const schedule = [
+	{ day: 'Every Saturday', time: '8:00 AM – 12:00 PM', label: 'Morning Work Session', type: 'regular' },
+	{ day: 'Every Thursday', time: '5:00 PM – 8:00 PM', label: 'Evening Volunteer Night', note: 'Spring – Fall', type: 'regular' },
+	{ day: 'First Sunday', time: '10:00 AM – 2:00 PM', label: 'Family Farm Day', note: 'Monthly', type: 'special' },
+];
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={`${SITE_TITLE} – A Community Farm in Western New York`} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+
+			<!-- ═══ HERO ═══ -->
+			<section class="hero">
+				<div class="hero-bg"></div>
+				<div class="container hero-content">
+					<span class="hero-badge">Western New York's Nonprofit Community Farm</span>
+					<h1>Growing Together,<br />Rooted in Community</h1>
+					<p>
+						We're a working farm where people of all backgrounds come to grow food, care for
+						animals, learn, and heal — together.
+					</p>
+					<div class="hero-actions">
+						<a href="/get-involved#donate" class="btn btn-primary">Donate Now</a>
+						<a href="/visit" class="btn btn-outline">Plan Your Visit</a>
+					</div>
+				</div>
+				<div class="hero-wave" aria-hidden="true">
+					<svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 80L1440 80L1440 30C1200 80 960 0 720 40C480 80 240 0 0 30Z" fill="white"/>
+					</svg>
+				</div>
+			</section>
+
+			<!-- ═══ QUICK ACTIONS ═══ -->
+			<section class="section-sm">
+				<div class="container">
+					<div class="quick-grid">
+						<a href="/get-involved#donate" class="quick-card quick-donate">
+							<span class="quick-icon">❤️</span>
+							<div class="quick-text">
+								<strong>Donate</strong>
+								<p>Support our mission</p>
+							</div>
+							<span class="quick-arrow">→</span>
+						</a>
+						<a href="/get-involved#volunteer" class="quick-card quick-volunteer">
+							<span class="quick-icon">🙌</span>
+							<div class="quick-text">
+								<strong>Volunteer</strong>
+								<p>Join a work session</p>
+							</div>
+							<span class="quick-arrow">→</span>
+						</a>
+						<a href="/get-involved#updates" class="quick-card quick-updates">
+							<span class="quick-icon">📬</span>
+							<div class="quick-text">
+								<strong>Get Updates</strong>
+								<p>Sign up for our newsletter</p>
+							</div>
+							<span class="quick-arrow">→</span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- ═══ MISSION ═══ -->
+			<section class="section bg-off-white">
+				<div class="container mission-grid">
+					<div class="mission-text">
+						<span class="section-tag">Our Mission</span>
+						<h2>A farm for everyone in Western New York</h2>
+						<p>
+							Open Farms WNY is a nonprofit working farm dedicated to connecting people with the
+							land, animals, and each other. We believe that growing food, caring for animals, and
+							working alongside neighbors has the power to build stronger individuals and stronger
+							communities.
+						</p>
+						<p>
+							Whether you're looking to get your hands in the soil, bring students for a field trip,
+							or find peace through purposeful outdoor work — there's a place for you here.
+						</p>
+						<a href="/about" class="btn btn-outline-green">Learn Our Story</a>
+					</div>
+					<div class="mission-image">
+						<img
+							src="/blog-placeholder-about.jpg"
+							alt="Volunteers working together at Open Farms WNY"
+							class="mission-img"
+						/>
+					</div>
+				</div>
+			</section>
+
+			<!-- ═══ PROGRAMS ═══ -->
+			<section class="section">
+				<div class="container">
+					<div class="section-header">
+						<span class="section-tag">What We Offer</span>
+						<h2>Programs for Every Season of Life</h2>
+						<p>
+							From growing vegetables to caring for animals to therapeutic outdoor work, we have
+							something that's right for you.
+						</p>
+					</div>
+					<div class="programs-grid">
+						{
+							programs.map((p) => (
+								<a href={p.link} class="program-card card">
+									<div class="program-icon">{p.icon}</div>
+									<h3>{p.title}</h3>
+									<p>{p.desc}</p>
+									<span class="program-link">Learn more →</span>
+								</a>
+							))
+						}
+					</div>
+				</div>
+			</section>
+
+			<!-- ═══ IMPACT ═══ -->
+			<section class="impact-section">
+				<div class="container">
+					<div class="section-header">
+						<span class="section-tag impact-tag">Our Impact</span>
+						<h2 class="impact-title">Making a Difference Together</h2>
+					</div>
+					<div class="stats-grid">
+						{
+							stats.map((s) => (
+								<div class="stat-card">
+									<span class="stat-number">{s.number}</span>
+									<span class="stat-label">{s.label}</span>
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</section>
+
+			<!-- ═══ SCHEDULE ═══ -->
+			<section class="section bg-off-white">
+				<div class="container">
+					<div class="section-header">
+						<span class="section-tag">When to Come</span>
+						<h2>Farm Schedule</h2>
+						<p>
+							The farm is open for volunteers and visitors on a regular schedule. No experience
+							needed — just show up ready to work!
+						</p>
+					</div>
+					<div class="schedule-grid">
+						{
+							schedule.map((s) => (
+								<div class={`schedule-card ${s.type === 'special' ? 'schedule-special' : ''}`}>
+									<div class="schedule-day">{s.day}</div>
+									<div class="schedule-info">
+										<strong>{s.label}</strong>
+										<span class="schedule-time">{s.time}</span>
+										{s.note && <span class="schedule-note">{s.note}</span>}
+									</div>
+								</div>
+							))
+						}
+					</div>
+					<div class="text-center" style="margin-top: 2.5rem;">
+						<a href="/visit" class="btn btn-secondary">Full Schedule & Directions</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- ═══ CTA BAND ═══ -->
+			<section class="cta-section">
+				<div class="container cta-inner">
+					<div class="cta-text">
+						<h2>Ready to get your hands dirty?</h2>
+						<p>
+							There are so many ways to be part of Open Farms WNY. Find the one that's right for
+							you.
+						</p>
+					</div>
+					<div class="cta-actions">
+						<a href="/get-involved#volunteer" class="btn btn-secondary">Sign Up to Volunteer</a>
+						<a href="/get-involved#donate" class="btn btn-primary">Make a Donation</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- ═══ NEWS ═══ -->
+			{
+				posts.length > 0 && (
+					<section class="section">
+						<div class="container">
+							<div class="section-header">
+								<span class="section-tag">From the Farm</span>
+								<h2>Latest News</h2>
+							</div>
+							<div class="news-grid">
+								{posts.map((post) => (
+									<a href={`/blog/${post.id}/`} class="news-card card">
+										{post.data.heroImage && (
+											<div class="news-img-wrap">
+												<img src={post.data.heroImage} alt={post.data.title} class="news-img" />
+											</div>
+										)}
+										<div class="news-body">
+											<p class="news-date">
+												<FormattedDate date={post.data.pubDate} />
+											</p>
+											<h3>{post.data.title}</h3>
+											<p>{post.data.description}</p>
+											<span class="news-link">Read more →</span>
+										</div>
+									</a>
+								))}
+							</div>
+							<div class="text-center" style="margin-top: 2.5rem;">
+								<a href="/blog" class="btn btn-outline-green">All Farm News</a>
+							</div>
+						</div>
+					</section>
+				)
+			}
+
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	/* ── Hero ── */
+	.hero {
+		position: relative;
+		min-height: 88vh;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+	}
+
+	.hero-bg {
+		position: absolute;
+		inset: 0;
+		background:
+			linear-gradient(135deg, #1b5e20 0%, #2e7d32 45%, #43a047 75%, #558b2f 100%);
+	}
+
+	/* When a real photo is available, uncomment and update:
+	.hero-bg {
+		background-image: url('/hero-farm.jpg');
+		background-size: cover;
+		background-position: center;
+	}
+	.hero-bg::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(135deg, rgba(27,94,32,0.88) 0%, rgba(46,125,50,0.55) 100%);
+	} */
+
+	.hero-content {
+		position: relative;
+		z-index: 1;
+		max-width: 720px;
+		padding: 6rem 1.5rem 9rem;
+	}
+
+	.hero-badge {
+		display: inline-block;
+		background: rgba(255, 255, 255, 0.18);
+		color: rgba(255, 255, 255, 0.95);
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		padding: 0.4em 1.1em;
+		border-radius: var(--radius-full);
+		font-size: 0.82rem;
+		font-weight: 800;
+		letter-spacing: 0.06em;
+		margin-bottom: 1.5rem;
+		backdrop-filter: blur(4px);
+	}
+
+	.hero h1 {
+		color: var(--white);
+		font-size: clamp(2.6rem, 6vw, 4.2rem);
+		line-height: 1.1;
+		margin-bottom: 1.25rem;
+	}
+
+	.hero p {
+		color: rgba(255, 255, 255, 0.88);
+		font-size: 1.2rem;
+		max-width: 540px;
+		margin-bottom: 2rem;
+		line-height: 1.65;
+	}
+
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.hero-wave {
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+		right: 0;
+		height: 80px;
+		pointer-events: none;
+	}
+
+	.hero-wave svg {
+		width: 100%;
+		height: 100%;
+	}
+
+	/* ── Quick Actions ── */
+	.quick-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.25rem;
+	}
+
+	.quick-card {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding: 1.25rem 1.5rem;
+		border-radius: var(--radius-lg);
+		text-decoration: none;
+		box-shadow: var(--shadow-sm);
+		transition: transform var(--transition), box-shadow var(--transition);
+	}
+
+	.quick-card:hover {
+		transform: translateY(-3px);
+		box-shadow: var(--shadow);
+	}
+
+	.quick-donate {
+		background: #fff8e1;
+	}
+
+	.quick-volunteer {
+		background: var(--green-pale);
+	}
+
+	.quick-updates {
+		background: #e3f2fd;
+	}
+
+	.quick-icon {
+		font-size: 2rem;
+		flex-shrink: 0;
+		line-height: 1;
+	}
+
+	.quick-text strong {
+		display: block;
+		font-size: 1.05rem;
+		font-weight: 800;
+		color: var(--text);
+		margin-bottom: 0.1em;
+	}
+
+	.quick-text p {
+		font-size: 0.83rem;
+		color: var(--text-mid);
+		margin: 0;
+	}
+
+	.quick-arrow {
+		margin-left: auto;
+		font-size: 1.2rem;
+		color: var(--text-light);
+		transition: transform var(--transition), color var(--transition);
+		flex-shrink: 0;
+	}
+
+	.quick-card:hover .quick-arrow {
+		transform: translateX(4px);
+		color: var(--green);
+	}
+
+	/* ── Mission ── */
+	.mission-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 4rem;
+		align-items: center;
+	}
+
+	.mission-text h2 {
+		margin-bottom: 1.25rem;
+	}
+
+	.mission-text p {
+		margin-bottom: 1rem;
+	}
+
+	.mission-text .btn {
+		margin-top: 0.5rem;
+	}
+
+	.mission-img {
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-lg);
+	}
+
+	/* ── Programs ── */
+	.programs-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.5rem;
+	}
+
+	.program-card {
+		padding: 2rem 1.5rem;
+		text-decoration: none;
+		color: inherit;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.program-icon {
+		font-size: 2.5rem;
+		line-height: 1;
+		margin-bottom: 1rem;
+	}
+
+	.program-card h3 {
+		font-size: 1.1rem;
+		color: var(--text);
+		margin-bottom: 0.75rem;
+	}
+
+	.program-card p {
+		font-size: 0.9rem;
+		line-height: 1.65;
+		margin-bottom: auto;
+		flex: 1;
+	}
+
+	.program-link {
+		display: inline-block;
+		margin-top: 1.25rem;
+		font-weight: 800;
+		font-size: 0.88rem;
+		color: var(--green);
+	}
+
+	/* ── Impact ── */
+	.impact-section {
+		background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+		padding: 5rem 0;
+	}
+
+	.impact-tag {
+		background: rgba(255, 255, 255, 0.15);
+		color: rgba(255, 255, 255, 0.95);
+	}
+
+	.impact-title {
+		color: var(--white);
+	}
+
+	.stats-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.5rem;
+	}
+
+	.stat-card {
+		text-align: center;
+		padding: 2rem 1.25rem;
+		background: rgba(255, 255, 255, 0.1);
+		border-radius: var(--radius-lg);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+	}
+
+	.stat-number {
+		display: block;
+		font-size: clamp(2.5rem, 4vw, 3.25rem);
+		font-weight: 900;
+		color: var(--yellow);
+		line-height: 1;
+		margin-bottom: 0.5rem;
+	}
+
+	.stat-label {
+		display: block;
+		font-size: 0.9rem;
+		color: rgba(255, 255, 255, 0.82);
+		font-weight: 600;
+	}
+
+	/* ── Schedule ── */
+	.schedule-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.25rem;
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.schedule-card {
+		background: var(--white);
+		border-radius: var(--radius-lg);
+		padding: 1.75rem;
+		box-shadow: var(--shadow-sm);
+		border-left: 4px solid var(--green-light);
+	}
+
+	.schedule-special {
+		border-left-color: var(--yellow);
+	}
+
+	.schedule-day {
+		font-size: 1.1rem;
+		font-weight: 900;
+		color: var(--green);
+		margin-bottom: 0.5rem;
+	}
+
+	.schedule-special .schedule-day {
+		color: var(--yellow-dark);
+	}
+
+	.schedule-info strong {
+		display: block;
+		font-weight: 800;
+		color: var(--text);
+		margin-bottom: 0.3rem;
+	}
+
+	.schedule-time {
+		display: block;
+		font-size: 0.9rem;
+		color: var(--text-mid);
+	}
+
+	.schedule-note {
+		display: inline-block;
+		margin-top: 0.35rem;
+		font-size: 0.78rem;
+		font-weight: 700;
+		background: var(--green-pale);
+		color: var(--green);
+		padding: 0.2em 0.7em;
+		border-radius: var(--radius-full);
+	}
+
+	.schedule-special .schedule-note {
+		background: #fff8e1;
+		color: var(--yellow-dark);
+	}
+
+	/* ── News ── */
+	.news-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+	}
+
+	.news-card {
+		text-decoration: none;
+		color: inherit;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.news-img-wrap {
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+	}
+
+	.news-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 0;
+		transition: transform 0.35s ease;
+	}
+
+	.news-card:hover .news-img {
+		transform: scale(1.04);
+	}
+
+	.news-body {
+		padding: 1.5rem;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.news-date {
+		font-size: 0.78rem;
+		color: var(--text-light);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		margin-bottom: 0.5rem;
+	}
+
+	.news-body h3 {
+		font-size: 1.05rem;
+		margin-bottom: 0.6rem;
+		color: var(--text);
+	}
+
+	.news-body p {
+		font-size: 0.88rem;
+		line-height: 1.65;
+		flex: 1;
+	}
+
+	.news-link {
+		display: inline-block;
+		margin-top: 1rem;
+		font-weight: 800;
+		font-size: 0.88rem;
+		color: var(--green);
+	}
+
+	/* ── Responsive ── */
+	@media (max-width: 1024px) {
+		.programs-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.stats-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.news-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.quick-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.mission-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.mission-image {
+			display: none;
+		}
+
+		.programs-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.schedule-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.news-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.hero-content {
+			padding: 5rem 1.5rem 8rem;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.stats-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+</style>

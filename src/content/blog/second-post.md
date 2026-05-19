@@ -1,16 +1,34 @@
 ---
-title: "Second post"
-description: "Lorem ipsum dolor sit amet"
-pubDate: "Jul 15 2022"
+title: "Spring Planting Season Is Here"
+description: "The ground is thawed, the seeds are ready, and we need your hands. Here's what's happening on the farm this spring."
+pubDate: "Apr 15 2025"
 heroImage: "/blog-placeholder-4.jpg"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+Spring at the farm is our favorite time of year. After a long Western New York winter, there's something deeply satisfying about putting seeds in the ground and watching things come back to life.
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+## What We're Planting
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+This spring, our community gardeners will be putting in a wide variety of vegetables across our raised beds and field rows, including:
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+- Tomatoes, peppers, and eggplant (started as transplants)
+- Cucumbers, zucchini, and summer squash
+- Greens: lettuce, kale, Swiss chard, and spinach
+- Root vegetables: carrots, beets, and radishes
+- Herbs: basil, parsley, cilantro, and more
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+We're also expanding our perennial herb bed this year, which means less planting work down the road and more fragrant, useful plants around the farm.
+
+## The Animals Are Loving It Too
+
+Warmer weather means more time outside for our goats and chickens. The goats have been especially enthusiastic about grazing the newly green grass, and our chickens are spending long afternoons in the sun.
+
+If you've been thinking about coming to meet the animals, spring and summer are the best times. The whole farm comes alive.
+
+## Volunteer Opportunities This Month
+
+We have extra work sessions scheduled this spring for planting days and fence maintenance. Saturday mornings remain our main gathering time, but we're also adding a few extra weekday sessions.
+
+Check the [Visit page](/visit) for the full schedule, and sign up to [volunteer](/get-involved#volunteer) if you'd like to be notified about special sessions.
+
+See you at the farm!

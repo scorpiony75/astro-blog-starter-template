@@ -12,74 +12,132 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
+		<BaseHead title={`${title} – Open Farms WNY`} description={description} image={heroImage} />
 	</head>
 
 	<body>
 		<Header />
 		<main>
 			<article>
-				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
+				{
+					heroImage && (
+						<div class="post-hero-img">
+							<img src={heroImage} alt={title} />
+						</div>
+					)
+				}
+
+				<div class="post-header">
+					<div class="container">
+						<a href="/blog" class="back-link">← All Farm News</a>
+						<div class="post-meta">
 							<FormattedDate date={pubDate} />
 							{
 								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
+									<span class="updated-date">
+										Updated: <FormattedDate date={updatedDate} />
+									</span>
 								)
 							}
 						</div>
 						<h1>{title}</h1>
-						<hr />
+						<p class="post-desc">{description}</p>
 					</div>
+				</div>
+
+				<div class="prose container">
 					<slot />
+				</div>
+
+				<div class="post-footer container">
+					<a href="/blog" class="btn btn-outline-green">← Back to Farm News</a>
+					<div class="post-share">
+						<a href="/get-involved#volunteer" class="btn btn-secondary">Volunteer With Us</a>
+						<a href="/get-involved#donate" class="btn btn-primary">Donate</a>
+					</div>
 				</div>
 			</article>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.post-hero-img {
+		width: 100%;
+		max-height: 480px;
+		overflow: hidden;
+	}
+
+	.post-hero-img img {
+		width: 100%;
+		height: 480px;
+		object-fit: cover;
+		border-radius: 0;
+		display: block;
+	}
+
+	.post-header {
+		background: var(--green-pale);
+		padding: 2.5rem 0 2rem;
+		border-bottom: 1px solid var(--border);
+		margin-bottom: 2rem;
+	}
+
+	.back-link {
+		display: inline-block;
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: var(--green);
+		margin-bottom: 1rem;
+		text-decoration: none;
+	}
+
+	.back-link:hover {
+		color: var(--green-dark);
+	}
+
+	.post-meta {
+		font-size: 0.82rem;
+		font-weight: 700;
+		color: var(--text-light);
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		margin-bottom: 0.75rem;
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+	}
+
+	.updated-date {
+		font-style: italic;
+	}
+
+	.post-header h1 {
+		margin-bottom: 0.75rem;
+		font-size: clamp(1.8rem, 4vw, 2.8rem);
+	}
+
+	.post-desc {
+		font-size: 1.1rem;
+		color: var(--text-mid);
+		max-width: 640px;
+		margin: 0;
+	}
+
+	.post-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+		padding-top: 2rem;
+		padding-bottom: 4rem;
+		border-top: 1px solid var(--border);
+	}
+
+	.post-share {
+		display: flex;
+		gap: 0.75rem;
+	}
+</style>

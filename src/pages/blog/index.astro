@@ -2,9 +2,8 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
+import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -14,98 +13,184 @@ const posts = (await getCollection('blog')).sort(
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
+		<BaseHead
+			title="Farm News – Open Farms WNY"
+			description="The latest news, stories, and updates from Open Farms WNY in Western New York."
+		/>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<section>
-				<ul>
+			<section class="page-hero">
+				<div class="container">
+					<span class="section-tag">From the Field</span>
+					<h1>Farm News</h1>
+					<p>Stories, updates, and highlights from our community farm.</p>
+				</div>
+			</section>
+
+			<section class="section">
+				<div class="container">
 					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
+						posts.length === 0 ? (
+							<div class="empty-state">
+								<p>No posts yet — check back soon!</p>
+							</div>
+						) : (
+							<div class="news-grid">
+								{posts.map((post, i) => (
+									<a href={`/blog/${post.id}/`} class={`news-card card ${i === 0 ? 'news-featured' : ''}`}>
+										{post.data.heroImage && (
+											<div class="news-img-wrap">
+												<img
+													src={post.data.heroImage}
+													alt={post.data.title}
+													class="news-img"
+												/>
+											</div>
+										)}
+										<div class="news-body">
+											<p class="news-date">
+												<FormattedDate date={post.data.pubDate} />
+											</p>
+											<h2 class="news-title">{post.data.title}</h2>
+											<p class="news-desc">{post.data.description}</p>
+											<span class="news-link">Read more →</span>
+										</div>
+									</a>
+								))}
+							</div>
+						)
 					}
-				</ul>
+				</div>
+			</section>
+
+			<section class="cta-section">
+				<div class="container cta-inner">
+					<div class="cta-text">
+						<h2>Want to be part of the story?</h2>
+						<p>Come volunteer, donate, or just follow along for updates.</p>
+					</div>
+					<div class="cta-actions">
+						<a href="/get-involved#volunteer" class="btn btn-secondary">Get Involved</a>
+						<a href="/get-involved#updates" class="btn btn-outline-green">Subscribe to Updates</a>
+					</div>
+				</div>
 			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.news-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+	}
+
+	.news-featured {
+		grid-column: 1 / -1;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.news-featured .news-img-wrap {
+		aspect-ratio: auto;
+		height: 100%;
+		min-height: 280px;
+	}
+
+	.news-featured .news-body {
+		padding: 2.5rem;
+	}
+
+	.news-featured .news-title {
+		font-size: 1.8rem;
+	}
+
+	.news-card {
+		text-decoration: none;
+		color: inherit;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.news-img-wrap {
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+	}
+
+	.news-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 0;
+		transition: transform 0.35s ease;
+	}
+
+	.news-card:hover .news-img {
+		transform: scale(1.04);
+	}
+
+	.news-body {
+		padding: 1.5rem;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.news-date {
+		font-size: 0.78rem;
+		color: var(--text-light);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		margin-bottom: 0.5rem;
+	}
+
+	.news-title {
+		font-size: 1.1rem;
+		margin-bottom: 0.6rem;
+		color: var(--text);
+	}
+
+	.news-desc {
+		font-size: 0.9rem;
+		line-height: 1.65;
+		flex: 1;
+	}
+
+	.news-link {
+		display: inline-block;
+		margin-top: 1rem;
+		font-weight: 800;
+		font-size: 0.88rem;
+		color: var(--green);
+	}
+
+	.empty-state {
+		text-align: center;
+		padding: 4rem;
+		background: var(--green-pale);
+		border-radius: var(--radius-lg);
+		color: var(--text-mid);
+	}
+
+	@media (max-width: 960px) {
+		.news-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.news-featured {
+			grid-column: auto;
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.news-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
